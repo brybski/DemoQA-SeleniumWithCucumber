@@ -1,5 +1,7 @@
 package DataProviders;
 
+import Enums.DriverType;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -44,5 +46,15 @@ public class ConfigFileReader {
         } else {
             throw new RuntimeException("timeout not specified in the config file.");
         }
+    }
+
+    public DriverType getBrowser()  {
+        String browserName = properties.getProperty("browser");
+        return switch (browserName) {
+            case "chrome" -> DriverType.CHROME;
+            case "edge" -> DriverType.EDGE;
+            default ->
+                    throw new RuntimeException("Browser name key value in configuration file is not matched: " + browserName);
+        };
     }
 }

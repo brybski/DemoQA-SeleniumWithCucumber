@@ -1,5 +1,6 @@
 package StepDefinitions;
 
+import Managers.DriverManager;
 import Managers.FileReaderManager;
 import Managers.PageObjectManager;
 import PageObjects.LoginPage;
@@ -17,12 +18,12 @@ public class MyStepsDefinition {
     HomePage homePage;
     LoginPage loginPage;
     PageObjectManager pageObjectManager;
+    DriverManager driverManager;
 
     @Given("User navigates to the application")
     public void user_navigates_to() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(FileReaderManager.getInstance().getConfigFileReader().getTime()));
+        driverManager = new DriverManager();
+        driver = driverManager.getDriver();
 
         pageObjectManager = new PageObjectManager(driver);
         homePage = pageObjectManager.getHomePage();
@@ -53,6 +54,6 @@ public class MyStepsDefinition {
     }
     @Then("Quit the session")
     public void quit_the_session() {
-        driver.quit();
+        driverManager.closeDriver();
     }
 }
