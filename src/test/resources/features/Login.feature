@@ -3,7 +3,7 @@ Feature: Login tests
 
 
   Scenario: Successful logging in with correct credentials
-    Given User navigates to 'https://demoqa.com/books'
+    Given User navigates to the application
     When User clicks on Login button
     Then User is redirected to 'Login' page
     When User inputs 'br' as a login and 'Haslo123!' as a password and clicks login button
