@@ -1,6 +1,6 @@
 package StepDefinitions;
 
-import DataProviders.ConfigFileReader;
+import Managers.FileReaderManager;
 import Managers.PageObjectManager;
 import PageObjects.LoginPage;
 import io.cucumber.java.en.*;
@@ -17,18 +17,17 @@ public class MyStepsDefinition {
     HomePage homePage;
     LoginPage loginPage;
     PageObjectManager pageObjectManager;
-    ConfigFileReader configFileReader = new ConfigFileReader();
 
     @Given("User navigates to the application")
     public void user_navigates_to() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(configFileReader.getTime()));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(FileReaderManager.getInstance().getConfigFileReader().getTime()));
 
         pageObjectManager = new PageObjectManager(driver);
         homePage = pageObjectManager.getHomePage();
 
-        driver.get(configFileReader.getUrl());
+        driver.get(FileReaderManager.getInstance().getConfigFileReader().getUrl());
     }
 
     @When("User clicks on Login button")
