@@ -1,5 +1,6 @@
 package StepDefinitions;
 
+import Managers.PageObjectManager;
 import PageObjects.LoginPage;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
@@ -14,13 +15,17 @@ public class MyStepsDefinition {
     WebDriver driver;
     HomePage homePage;
     LoginPage loginPage;
-
+    PageObjectManager pageObjectManager;
 
     @Given("User navigates to {string}")
     public void user_navigates_to(String string) {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        pageObjectManager = new PageObjectManager(driver);
+        homePage = pageObjectManager.getHomePage();
+
         driver.get(string);
     }
 
@@ -31,8 +36,8 @@ public class MyStepsDefinition {
     }
     @Then("User is redirected to {string} page")
     public void user_is_redirected_to_login_page(String string) {
-        loginPage = new LoginPage(driver);
-        String actualTitle = homePage.getPageTitle();
+        loginPage = pageObjectManager.getLoginPage();
+        String actualTitle = loginPage.getPageTitle();
         Assert.assertEquals(actualTitle,string);
     }
 
