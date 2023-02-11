@@ -29,6 +29,6 @@ public class LoginPage extends BasePage {
     public void clicksLoginButton(WebDriver driver) throws InterruptedException {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", loginButton);
         Thread.sleep(500);
-        loginButton.click();
+        loginButton.click(); //to be done - change click() into method that scrolls down to the element and clicks;
     }
 }

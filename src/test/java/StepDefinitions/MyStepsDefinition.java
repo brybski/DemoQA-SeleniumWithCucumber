@@ -43,7 +43,6 @@ public class MyStepsDefinition {
     }
     @Then("User {string} is successfully logged in")
     public void user_is_successfully_logged_in(String string) {
-        homePage = new HomePage(driver);
         String actualUser = homePage.getCurrentUsername();
         Assert.assertEquals(actualUser,string);
     }
