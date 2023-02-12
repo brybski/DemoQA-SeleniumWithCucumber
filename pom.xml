@@ -48,10 +48,13 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.3.2</version>
         </dependency>
-
-
-
-
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>7.11.1</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- in case dependency is not found press ctrl+alt+o in intellij -->
 
     </dependencies>
 </project>
