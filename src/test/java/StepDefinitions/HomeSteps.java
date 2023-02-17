@@ -27,12 +27,6 @@ public class HomeSteps {
         homePage = testContext.getPageObjectManager().getHomePage();
     }
 
-    @Given("User navigates to the application")
-    public void user_navigates_to() {
-        driver = testContext.getDriverManager().getDriver();
-        driver.get(FileReaderManager.getInstance().getConfigFileReader().getUrl());
-    }
-
     @When("User clicks on Login button")
     public void user_clicks_on_login_button() {
         homePage.clickOnLoginButton();
@@ -43,10 +37,4 @@ public class HomeSteps {
         String actualUser = homePage.getCurrentUsername();
         Assert.assertEquals(actualUser,string);
     }
-
-    @Then("Quit the session")
-    public void quit_the_session() {
-        testContext.getDriverManager().closeDriver();
-    }
-
 }
