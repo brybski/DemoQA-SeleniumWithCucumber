@@ -1,8 +1,6 @@
 package StepDefinitions;
 
-import Managers.DriverManager;
-import Managers.FileReaderManager;
-import Managers.PageObjectManager;
+import Enums.Context;
 import PageObjects.HomePage;
 import Utilities.TestContext;
 import io.cucumber.java.en.Given;
@@ -32,9 +30,10 @@ public class HomeSteps {
         homePage.clickOnLoginButton();
     }
 
-    @Then("User {string} is successfully logged in")
-    public void user_is_successfully_logged_in(String string) {
+    @Then("User is successfully logged in")
+    public void user_is_successfully_logged_in() {
         String actualUser = homePage.getCurrentUsername();
-        Assert.assertEquals(actualUser,string);
+        String expectedUser = testContext.scenarioContext.getContext(Context.LOGIN).toString();
+        Assert.assertEquals(actualUser,expectedUser);
     }
 }

@@ -32,7 +32,7 @@ public class ConfigFileReader {
     }
 
     public String getUrl() {
-        String url = properties.getProperty("url"); //roperties object gives us a .getProperty method which takes the Key of the property as a parameter and return the Value of the matched key from the .properties file.
+        String url = properties.getProperty("url"); //properties object gives us a .getProperty method which takes the Key of the property as a parameter and return the Value of the matched key from the .properties file.
         //Simply If...Else
         if (url != null) return url;
         else throw new RuntimeException("url not specified in the config file.");
