@@ -7,4 +7,3 @@ Feature: Login tests
     Then User is redirected to 'Login' page
     When User inputs 'br' as a login and 'Haslo123!' as a password and clicks login button
     Then User is successfully logged in
-    #to be done - scenario context to be used to avoid duplicating the data ('br' user listed twice) not necessarily
