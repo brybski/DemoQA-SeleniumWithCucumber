@@ -54,7 +54,17 @@
             <version>7.11.1</version>
             <scope>test</scope>
         </dependency>
-        <!-- in case dependency is not found press ctrl+alt+o in intellij -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>tech.grasshopper</groupId>
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+            <version>1.10.1</version>
+        </dependency>
+        <!-- in case dependency is not found press ctrl+shft+o in intellij -->
 
     </dependencies>
 </project>
