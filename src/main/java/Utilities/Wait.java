@@ -7,6 +7,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.function.Function;
 
+/*
+special waits for Ajax / JQuery frameworks that can be sometimes needed on pages when they are used.
+standard Selenium waits might not be enough in some cases.
+to check them you can use jQuery.active command in devtools console or document.readyState during loading
+ */
 
 public class Wait {
 
